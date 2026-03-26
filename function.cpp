@@ -11,7 +11,7 @@ class student{
 
     public:
     void getdata(){
-        cout<<"\nEnter StudentId:";
+        cout<<"Enter StudentId:";
         cin>>StudentId;
 
         cout<<"Enter StudentName:";
@@ -36,9 +36,12 @@ int main(){
     student mm;
 
     mm.getdata();
+    mm.printdata();
+
     mm.getdata();
     mm.printdata();
-    mm.printdata();
+
+    
 
 
     return 0;
