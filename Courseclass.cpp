@@ -1,31 +1,35 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 class CourseData{
 
     int CourseId;
     string CourseName;
-    int CourseFees;
+    long int CourseFees;
     string JoiningDate;
     string CourseDuration;
 
     public:
+
     void getCourseData(){
 
         cout<<"\nEnter CourseId:";
         cin>>CourseId;
+        cin.ignore();
 
         cout<<"Enter Course Name:";
-        cin>>CourseName;
+        getline(cin,CourseName);
 
         cout<<"Enter Course Fees:";
         cin>>CourseFees;
 
         cout<<"Enter Joining Date:";
         cin>>JoiningDate;
+        cin.ignore();
 
         cout<<"Enter Course Duration:";
-        cin>>CourseDuration;
+        getline(cin,CourseDuration);
     }
 
     void printCourseData(){
