@@ -1,125 +1,118 @@
-// Bus Reservation System
 #include<iostream>
 using namespace std;
 
-class Bus{
-    int busNo;
-    string busName;
-    string destination;
-    string source;
-    string time;
+class bus{
+
+    int BusNo;
+    string BusName;
+    string BusDestination;
+    string Source;
+    string Time;
 
     public:
-        static int count;
+    static int count;
 
-        void getDetails(){
-            cout<<"\nEnter busNo:";
-            cin>>busNo;
+    void getdetail(){
+        cout<<"Enter Bus No:";
+        cin>>BusNo;
 
-            cin.ignore();
-            cout<<"Enter busName:";
-            getline(cin,busName);
+        cout<<"Enter Bus Name:";
+        cin>>BusName;
 
-            cout<<"Enter Source:";
-            getline(cin,source);
-            
-            cout<<"Enter Destination:";
-            getline(cin,destination);
+        cout<<"Enter Bus Destination:";
+        cin>>BusDestination;
 
-            cout<<"Enter Time:";
-            getline(cin,time);
+        cout<<"Enter Bus Source:";
+        cin>>Source;
 
-            count++;
-            cout<<"\nBus Record added successfully.!!"<<endl<<endl;
+        cout<<"Enter Bus time:";
+        cin>>Time;
 
-        }
+        count++;
+        cout<<"\nBus record added succesfully..!!"<<endl;
+    }
 
-        void displayBusInfo(){
-            cout<<"Bus Number:"<<busNo<<endl;
-            cout<<"Bus Name:"<<busName<<endl;
-            cout<<"Source:"<<source<<endl;
-            cout<<"Destination:"<<destination<<endl;
-            cout<<"Time:"<<time<<endl;
-        }
-
-        int getBusNo(){
-            return busNo;
-        }
+    void displayinfo(){
+        cout<<"\nBus No:"<<BusNo<<endl;
+        cout<<"Bus Name:"<<BusName<<endl;
+        cout<<"Bus Destination:"<<BusDestination<<endl;
+        cout<<"Bus Source:"<<Source<<endl;
+        cout<<"Bus Time:"<<Time<<endl;
+    }
+    int getbusNo(){
+        return BusNo;
+    }
 };
-
-int Bus::count = 0;
-
+int bus :: count = 0;
 int main(){
+    bus Buses[100];
 
-    Bus buses[100];//object array
-    
-    int choice,i,searchNo;
-    
+    int choice,i,serach;
     bool found = false;
 
     do{
-        cout<<"\n\n||--=== BUS RESERVATION SYSTEM ===--||"<<endl;
-        cout<<"\n1.Add Bus Record.";
-        cout<<"\n2.Display All Buses Details.";
-        cout<<"\n3.Search bus by busNo.";
-        cout<<"\n4.Exit";
+        cout<<"\n||---==Bus Reservation System==---||"<<endl;
+        cout<<"\n1.Add bus record.";
+        cout<<"\n2.Display All Buses Detail.";
+        cout<<"\n3.Search bus by bus no.";
+        cout<<"\n4.Exit.";
 
-        cout<<"\n\nEnter your choice:";
+        cout<<"\n\nEnter your Choice:";
         cin>>choice;
 
         switch(choice){
             case 1:
-                if(Bus::count < 100){
-                    buses[Bus::count].getDetails();
-                    // buses[0].getDetails();
+                if(bus::count < 100){
+                    Buses[bus::count].getdetail();
                 }
                 else{
-                    cout<<"Record system is full.!"<<endl;
+                    cout<<"Record system is full..!!";
                 }
                 break;
             case 2:
-                if(Bus::count == 0){
-                    cout<<"No buses record found.!!";
+                if(bus::count == 0){
+                    cout<<"No bus record found..!!";
                 }
                 else{
-                    for(i=0;i<Bus::count;i++){
-                        cout<<"\n||--= BUS - "<<i+1<<"=--||"<<endl;
-                        buses[i].displayBusInfo();
+                    for(i=0;i<bus :: count;i++){
+                        cout<<"\n||--==BUS"<<i+1<<"==--||"<<endl;
+                        Buses[i].displayinfo();
                     }
                 }
                 break;
-
             case 3:
-                if(Bus::count == 0){
-                    cout<<"No buses record found.!!";
+                if(bus :: count == 0){
+                    cout<<"No bus record found.!!";
                 }
                 else{
-                    cout<<"Enter searchNo:";
-                    cin>>searchNo;
+                    cout<<"Enter Serach No:";
+                    cin>>serach;
 
-                    for(i=0;i<Bus::count;i++){
-                        if(buses[i].getBusNo() == searchNo){
+                    found = false;
+
+                    for(i=0;i<bus::count;i++){
+                        if(Buses[i].getbusNo() == serach){
                             found = true;
-                            buses[i].displayBusInfo();
-                        }
-                        else{
-                            cout<<"Bus record not found.!!"<<endl;
-                        }
-                       
+                            Buses[i].displayinfo();
+                            break;
+                        }  
+                    }
+                    if(!found){
+                        cout<<"Bus record not found..!!"<<endl;
                     }
                 }
                 break;
-
             case 4:
-                cout<<"\nThank you for using Bus Reservation System."<<endl;
-                break;
-            
+                 cout<<"\nThank you for using bus reservation system."<<endl;
+                 break;
+
             default:
-                cout<<"\nInvalid choice..!!"<<endl;
+                 cout<<"Invalid Choice..!!"<<endl;
         }
 
     }
-    while(choice != 4);
+    while(choice !=  4);
+    
 
     return 0;
 }
