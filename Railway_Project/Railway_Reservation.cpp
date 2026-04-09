@@ -33,7 +33,7 @@ public:
      }
 
      void displayinfo(){
-        cout<<"Train No:"<<\nTrainNo<<endl;
+        cout<<"Train No:"<<TrainNo<<endl;
         cout<<"Train Name:"<<TrainName<<endl;
         cout<<"Train Destination:"<<Destination<<endl;
         cout<<"Train Source:"<<Source<<endl;
