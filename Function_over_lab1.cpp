@@ -14,11 +14,11 @@ public:
     }
     int sub(int a, int b, int c)
     {
-        cout << "\nSubtraction:" << a - b - c << endl;
+        cout << "Subtraction:" << a - b - c << endl;
     }
     int div(int a, int b)
     {
-        cout << "\nDivison:" << a / b << endl;
+        cout << "Divison:" << a / b << endl;
     }
 };
 
